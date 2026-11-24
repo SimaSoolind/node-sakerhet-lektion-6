@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karta F6-övningar</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#fbfaf7; --text:#1f2328; --muted:#5b6470; --kort:#ffffff; --kant:#d0d5dc; --gul:#fff4cc; --gul-kant:#c99a00; --gron:#e3f4e6; --gron-kant:#2e8b57; --bla:#e8f0fb; --bla-kant:#3b6fb6; --rod:#fdecea; --rod-kant:#c0392b; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#16181c; --text:#e8eaed; --muted:#a8b0bb; --kort:#1f2329; --kant:#3a414b; --gul:#3a3110; --gul-kant:#e0b52e; --gron:#163322; --gron-kant:#4cc38a; --bla:#16243a; --bla-kant:#6a9be0; --rod:#3a1a17; --rod-kant:#e57368; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:'Atkinson Hyperlegible', system-ui, sans-serif; font-size:19px; line-height:1.5; }
+  main { max-width:780px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:28px; margin:0 0 6px; }
+  h2 { font-size:22px; margin:34px 0 12px; }
+  .tid { background:var(--gul); border-left:5px solid var(--gul-kant); padding:10px 14px; border-radius:8px; margin:12px 0; }
+  .metod { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px; font-size:16px; }
+  .metod span { background:var(--bla); border:2px solid var(--bla-kant); border-radius:20px; padding:3px 12px; }
+  .grupp { font-size:15px; font-weight:700; color:var(--muted); text-transform:none; margin:26px 0 8px; }
+  .kort { background:var(--kort); border:2px solid var(--kant); border-radius:14px; padding:12px 16px; margin:0; }
+  .kort label { display:flex; gap:12px; align-items:flex-start; cursor:pointer; }
+  .kort input { width:24px; height:24px; margin-top:4px; flex:0 0 auto; }
+  .nr { font-weight:700; font-size:21px; }
+  .fil { font-family:Menlo, Consolas, monospace; font-size:17px; background:rgba(127,127,127,.15); padding:1px 7px; border-radius:6px; }
+  .rad { display:block; margin-top:4px; }
+  .aha { display:block; margin-top:6px; background:var(--gul); border-radius:8px; padding:6px 10px; font-size:17px; }
+  .koppling { display:block; margin-top:6px; font-size:16px; color:var(--muted); }
+  .kort.klar { background:var(--gron); border-color:var(--gron-kant); }
+  .pil { text-align:center; color:var(--muted); font-size:24px; line-height:1; margin:4px 0; }
+  .lax { background:var(--rod); border:2px solid var(--rod-kant); border-radius:14px; padding:12px 16px; }
+  table { border-collapse:collapse; width:100%; font-size:17px; }
+  td, th { border:1px solid var(--kant); padding:8px 10px; text-align:left; vertical-align:top; }
+</style>
+</head>
+<body>
+<main>
+  <h1>🗺 Karta: F6-övningar steg för steg</h1>
+  <div class="tid">📅 <b>Tisdag 24 nov kl 12:30</b>, efter AI-lektionen. Pomodoro 50 + 10 min.</div>
+
+  <p>Varje fil är ett litet program, 5–15 rader. <b>En fil = ett aha.</b> Bocka av när du kan svara på aha-frågan med egna ord.</p>
+  <div class="metod"><span>1. Läs avsnittet i boken</span><span>2. Skriv koden själv</span><span>3. Kör: node filnamn.js</span><span>4. Svara på aha-frågan</span></div>
+
+  <h2>Förberedelse (5 min)</h2>
+  <table>
+    <tr><th>Gör</th><th>Kommando</th></tr>
+    <tr><td>Gå till mappen</td><td><code>cd ~/Documents/node-kursen/node-uppgifter/f6-ovningar</code></td></tr>
+    <tr><td>Skapa package.json</td><td><code>npm init -y</code></td></tr>
+    <tr><td>Slå på import</td><td><code>npm pkg set type=module</code></td></tr>
+    <tr><td>Installera paketen</td><td><code>npm install bcrypt jsonwebtoken dotenv xss express</code></td></tr>
+  </table>
+
+  <p class="grupp">DEL 1 · HASH (hör till uppgift 1: registrera)</p>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">1</span> <span class="fil">sha256.js</span>
+    <span class="rad">Gör om en text till en hash med Nodes inbyggda <code>crypto</code>.</span>
+    <span class="aha">💡 Varför ger samma text alltid samma hash, och varför går den inte att vända tillbaka?</span>
+    <span class="koppling">📖 Boken: "Hashning och kryptering"</span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">2</span> <span class="fil">hasha.js</span>
+    <span class="rad">Hasha ett lösenord med <code>bcrypt.hash</code>. Kör två gånger.</span>
+    <span class="aha">💡 Varför blir hashen olika varje gång, fast lösenordet är samma? (salt)</span>
+    <span class="koppling">🔗 Lektion 6: <code>registerUser</code> i userService.js</span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">3</span> <span class="fil">rundor.js</span>
+    <span class="rad">Mät hur lång tid bcrypt tar med 8, 10 och 12 varv.</span>
+    <span class="aha">💡 Varför är det bra att bcrypt är långsamt?</span>
+    <span class="koppling">🔗 Lektion 6: <code>SALT_ROUNDS = 10</code></span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">4</span> <span class="fil">jamfor.js</span>
+    <span class="rad">Jämför rätt och fel lösenord med <code>bcrypt.compare</code>.</span>
+    <span class="aha">💡 Hur kan bcrypt jämföra, när hashen inte går att vända tillbaka?</span>
+    <span class="koppling">🔗 Lektion 6: <code>passwordOk</code> i /login</span>
+  </span></label></div>
+
+  <p class="grupp">DEL 2 · JWT (hör till uppgift 2: logga in)</p>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">5</span> <span class="fil">avkoda.js</span>
+    <span class="rad">Dela en riktig token vid punkterna och avkoda del 1 och 2.</span>
+    <span class="aha">💡 Varför får lösenord aldrig ligga i payload?</span>
+    <span class="koppling">🔗 Lektion 6: token från POST /login i Postman</span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">6</span> <span class="fil">skapa-token.js</span>
+    <span class="rad">Skapa en token med <code>jwt.sign</code> och skriv ut den.</span>
+    <span class="aha">💡 Vilken del skriver jag själv, och vilka delar gör <code>jwt.sign</code> åt mig?</span>
+    <span class="koppling">🔗 Lektion 6: <code>jwt.sign</code> i /login</span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">7</span> <span class="fil">env-test.js</span>
+    <span class="rad">Läs <code>JWT_SECRET</code> från <code>.env</code>.</span>
+    <span class="aha">💡 Vad fyller lådan <code>process.env</code>, och vad händer om <code>dotenv/config</code> saknas?</span>
+    <span class="koppling">🔗 Lektion 6: rad 1 i server.js</span>
+  </span></label></div>
+
+  <p class="grupp">DEL 3 · KONTROLLERA (hör till uppgift 3: skyddad sida)</p>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">8</span> <span class="fil">verifiera.js</span>
+    <span class="rad">Testa fyra fall med <code>jwt.verify</code>: rätt, ändrad, fel hemlighet, för gammal.</span>
+    <span class="aha">💡 Hur upptäcker <code>jwt.verify</code> att en enda bokstav är ändrad?</span>
+    <span class="koppling">🔗 Lektion 6: middleware/auth.js → 403</span>
+  </span></label></div>
+
+  <p class="grupp">DEL 4 · ATTACKER (säkerhetsdelen, SAL)</p>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">9</span> <span class="fil">xss-test.js</span>
+    <span class="rad">Se vad som händer med en text som innehåller <code>&lt;script&gt;</code>.</span>
+    <span class="aha">💡 Varför ska text från användaren göras ofarlig innan den visas på en sida?</span>
+    <span class="koppling">🔗 SAL F4, och frontend-planen (textContent)</span>
+  </span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span>
+    <span class="nr">10</span> <span class="fil">https-server.js</span>
+    <span class="rad">Starta en server med HTTPS i stället för HTTP.</span>
+    <span class="aha">💡 Vad ser en angripare på nätverket med HTTP, och vad ser den med HTTPS?</span>
+    <span class="koppling">🔗 SAL F3, F7 (leverans)</span>
+  </span></label></div>
+
+  <h2>Sist: läxan till onsdag 25 nov morgon</h2>
+  <div class="lax">
+    <b>🎯 Jobba i lärarens repo, som på en arbetsplats</b>
+    <span class="rad">Länken: Learnpoint, repot för <b>25</b> (inte 24). Mapp: <code>node-uppgifter/fullstack25_nodejs_lecture-notes/</code>.</span>
+  </div>
+  <div class="kort"><label><input type="checkbox"><span><span class="nr">L1</span> Klona repot: <span class="fil">git clone &lt;länken&gt;</span><span class="aha">💡 Vad är skillnaden mellan att klona och att ladda ner en zip?</span></span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span><span class="nr">L2</span> Ny branch från main: <span class="fil">git switch -c ditt-namn/auth-namn</span><span class="aha">💡 Varför jobbar man aldrig direkt i main i ett gemensamt repo?</span></span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span><span class="nr">L3</span> Byt namn: <code>userPassword</code> → objektet <code>authorization</code> med <code>byPassword</code> och <code>byApiKey</code><span class="rad">Routerna: <code>authorization.byPassword</code>. Orders-routen: <code>authorization.byApiKey</code>. Testa i Postman.</span><span class="aha">💡 Varför är <code>authorization.byPassword</code> lättare att förstå än <code>userPassword</code>? (Jämför med din <code>authenticateToken</code>)</span></span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span><span class="nr">L4</span> Committa och pusha din branch till <b>lärarens</b> repo. Aldrig <code>.env</code>! 🔒<span class="aha">💡 Om pushen nekas: vad betyder det? (Läraren har inte gjort dig till collaborator än)</span></span></label></div>
+  <div class="pil">↓</div>
+  <div class="kort"><label><input type="checkbox"><span><span class="nr">L5</span> Skapa en pull request på GitHub (eller en issue: "Jag tycker att det borde vara så här")<span class="aha">💡 Vad är skillnaden mellan en pull request och en issue?</span></span></label></div>
+
+  <h2>Efter övningarna</h2>
+  <table>
+    <tr><th>Runda</th><th>Vad</th></tr>
+    <tr><td>2</td><td>Bygg lektion 6 igen från noll: <code>../lektion-6-repetition/ovningar.md</code></td></tr>
+    <tr><td>3</td><td>Eget projekt: JWT i övningsprojektet (LIA-demo)</td></tr>
+  </table>
+</main>
+<script>
+  // kommer ihåg dina bockar i webbläsaren
+  document.querySelectorAll('.kort input').forEach((ruta, nummer) => {
+    const nyckel = 'f6-bock-' + nummer;
+    try { if (localStorage.getItem(nyckel) === 'ja') { ruta.checked = true; ruta.closest('.kort').classList.add('klar'); } } catch (fel) {}
+    ruta.addEventListener('change', () => {
+      ruta.closest('.kort').classList.toggle('klar', ruta.checked);
+      try { localStorage.setItem(nyckel, ruta.checked ? 'ja' : 'nej'); } catch (fel) {}
+    });
+  });
+</script>
+</body>
+</html>

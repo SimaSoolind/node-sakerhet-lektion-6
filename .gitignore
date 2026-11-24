@@ -1,0 +1,18 @@
+node_modules
+.env
+
+# Lärarens repo har sin egen git
+fullstack25_nodejs_lecture-notes/
+
+# Inte klara än, läggs till när de är fullständiga (Sima 2026-11-24)
+lektion-1-intro/
+lektion-2-express/
+lektion-3-filer/
+lektion-4-databas/
+lektion-5-rest/
+
+# Hör inte till Node-kursen
+skar-design-prompt.md
+
+# Min privata lärlista
+att-lara-mig.md
