@@ -9,8 +9,7 @@ En mapp per lektion. Kapitlet finns i 📘 Node-handboken (F1–F9).
 | `lektion-3-filer/` | F3 | läsa filer med fs/promises |
 | `lektion-4-databas/` | F4 | PostgreSQL: schema, seed, frågor |
 | `lektion-5-rest/` | F5 | REST-API med zod |
-| `lektion-6-sakerhet/` | F6 | bcrypt, JWT, authenticateToken (Postgres i Docker, Postman) |
-| `lektion-6-repetition/` | F6 | samma sak igen från noll, övningar |
+| `lektion-6-7-sakerhet/` | F6, F7 | bcrypt, JWT, authenticateToken, roller (RBAC) och authorize (Postgres i Docker, Postman) |
 | `f6-ovningar/` | F6 | små program, ett begrepp i taget (karta.html) |
 | `att-lara-mig.md` | – | min lärlista |
 | `route-receptet.pdf` | F5–F6 | A4: route-mallen och statuskoderna |

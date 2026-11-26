@@ -18,7 +18,7 @@ Nästa: repetition i `../lektion-6-repetition/ovningar.md`, sedan F6-övningarna
 | Gör | Kommando |
 |---|---|
 | Starta databasen | `docker start lektion6-db` |
-| Gå till mappen | `cd ~/Documents/node-kursen/node-uppgifter/lektion-6-sakerhet` |
+| Gå till mappen | `cd ~/Documents/node-kursen/node-uppgifter/lektion-6-7-sakerhet` |
 | Se tabellen | `docker exec lektion6-db psql -U postgres -d n6test -c "SELECT * FROM users;"` |
 | Kolla en fil | `node --check filnamn.js` |
 
