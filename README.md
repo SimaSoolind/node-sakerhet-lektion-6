@@ -13,6 +13,7 @@ En mapp per lektion. Kapitlet finns i 📘 Node-handboken (F1–F9).
 | `f6-ovningar/` | F6 | små program, ett begrepp i taget (karta.html) |
 | `att-lara-mig.md` | – | min lärlista |
 | `route-receptet.pdf` | F5–F6 | A4: route-mallen och statuskoderna |
+| `syntax-fusklapp.pdf` | F5–F7 | 2 A4: de tre mönstren (middleware, service, route), tecken och statuskoder + träna-utan-att-titta |
 | `plan-node-och-sal.md` | – | Node och SAL hand i hand |
 
 `package.json` och `node_modules` här gäller lektion 1–5. Lektion 6 har egna paket.

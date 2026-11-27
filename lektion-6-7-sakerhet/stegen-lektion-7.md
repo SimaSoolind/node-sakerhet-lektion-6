@@ -4,7 +4,7 @@
 ⏰ **Deadline: tisdag 1 december** (lektion + granskning av Alex kod)
 
 ## 📍 Här är jag nu
-Del A steg 1–5 ✅. Del B uppgift 1 ✅. Uppgift 2: `roles.js`, `authorize`, `requireAdmin` och `deleteUser` (testad med `scripts/testa-delete.js`) ✅. Routen `DELETE /users/:id` är skriven, 401 testad ✅. 403 som testSima testad ✅. Nästa: Postman test 3 (200 som Admin), sedan 404.
+Del A steg 1–5 ✅. Del B uppgift 1 ✅. Uppgift 2: `roles.js`, `authorize`, `requireAdmin` och `deleteUser` (testad med `scripts/testa-delete.js`) ✅. Routen `DELETE /users/:id` är skriven, 401 testad ✅. 403 som testSima testad ✅. Uppgift 3 klar: 401, 403, 200 och 404 testade ✅. Del B är klar och pushad ✅. Nästa: Del C steg 1 i Skär (installera paketen).
 
 ## 🧵 Röda tråden
 ```
@@ -39,17 +39,22 @@ Byggs i samma mapp som lektion 6 (se [stegen.md](stegen.md)).
   - [x] middleware `authorize` (generellt) och `requireAdmin` (enkelt) → 403 ✅
   - [x] `DELETE /users/:id` med `authenticateToken` + `requireAdmin` ✅ (skriven, 401 testad)
   - [x] service: `deleteUser` med `$1` ✅ (testad: 200-fallet och 404-fallet)
-- [ ] **Uppgift 3:** testa i Postman
+- [x] **Uppgift 3:** testa (Postman och curl)
   - [x] utan token → 401 ✅
   - [x] som User → 403 ✅
-  - [ ] som Admin → 200
-  - [ ] Admin tar bort ett id som inte finns → 404
+  - [x] som Admin → 200 ✅ (admintest tog bort id 7)
+  - [x] Admin tar bort ett id som inte finns → 404 ✅
 
 ## Del C: Samma sak i Skär-projektet, ren kod utan lärkommentarer (cirka 3 pomodoros)
-- [ ] `src/middleware/admin-middleware.ts` → 403
-- [ ] bara Admin får hantera rum
-- [ ] bara ägaren eller Admin får ändra eller ta bort en bokning
-- [ ] Postman: alla fall + commit och push
+⚠️ Skär har ingen inloggning än (auth-controller och auth-middleware är tomma, `jsonwebtoken` och `bcrypt` saknas). F6 byggs först, sedan F7. Mappen: `~/Documents/node-kursen/HotellSkar-api`.
+- [ ] 1. `npm install jsonwebtoken bcrypt` och `npm install -D @types/jsonwebtoken @types/bcrypt`  ← **börja här**
+- [ ] 2. `POST /register` med bcrypt (auth-controller.ts, user-schemas.ts)
+- [ ] 3. `POST /login` med JWT
+- [ ] 4. `src/middleware/auth-middleware.ts` → 401
+- [ ] 5. `src/middleware/admin-middleware.ts` → 403
+- [ ] 6. bara Admin får skapa, ändra och ta bort rum
+- [ ] 7. bara ägaren eller Admin får ändra eller ta bort en bokning
+- [ ] 8. Postman/curl: alla fall + commit och push (utan kommentarer i koden)
 
 ## Del D: Alex kod för veckan (cirka 3 pomodoros)
 - [ ] `git pull` i hans repo, ny branch
