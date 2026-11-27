@@ -2,6 +2,7 @@
 import bcrypt from 'bcrypt';
 // hämtar databasenpoolen
 import pool from '../../db/db.js';
+import { id } from 'zod/locales';
 // antal arbete för bcrypt
 const SALT_ROUNDS =10;
 
@@ -28,4 +29,9 @@ return foundUser.rows[0]
 export const getAllUsers = async () =>{
     const allUsers = await pool.query('SELECT id, username, role FROM users');
     return allUsers.rows;
+}
+
+export const deleteUser = async(id) =>{
+    const deleteUser = await pool.query('DELETE FROM users WHERE id = $1 RETURNING id, username',[id]);
+    return deleteUser.rows[0];
 }

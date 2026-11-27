@@ -4,7 +4,7 @@
 ⏰ **Deadline: tisdag 1 december** (lektion + granskning av Alex kod)
 
 ## 📍 Här är jag nu
-Del A steg 1–5 ✅. Del B uppgift 1 ✅ (i Docker). Nästa: schema.sql och sedan uppgift 2 (roles.js).
+Del A steg 1–5 ✅. Del B uppgift 1 ✅. Uppgift 2: `roles.js`, `authorize`, `requireAdmin` och `deleteUser` (testad med `scripts/testa-delete.js`) ✅. Routen `DELETE /users/:id` är skriven, 401 testad ✅. 403 som testSima testad ✅. Nästa: Postman test 3 (200 som Admin), sedan 404.
 
 ## 🧵 Röda tråden
 ```
@@ -21,7 +21,7 @@ Förfrågan med token
 - [x] 2. Vad RBAC är (användare → roll → rättigheter) ✅
 - [x] 3. Rättighetsmatrisen och `roles.js` ✅
 - [x] 4. En roll på användaren (`role` i tabellen, `CHECK`) ✅
-- [ ] 5. Middleware: `authorize` rad för rad
+- [x] 5. Middleware: `authorize` rad för rad ✅
 - [ ] 6. Ett komplett exempel: Express, JWT och PostgreSQL
 - [ ] 7. 401 eller 403?
 - [ ] 8. Rollhierarki
@@ -35,13 +35,13 @@ Byggs i samma mapp som lektion 6 (se [stegen.md](stegen.md)).
   - [x] `role` får bara vara `User` eller `Admin` (`CHECK` i databasen)
   - [x] gör en testanvändare till Admin med `UPDATE`
   - [x] prova en roll som inte finns, till exempel `Kung` → fel
-- [ ] **Uppgift 2:** bara Admin får ta bort en användare
-  - [ ] middleware `authorize` (eller `authorization.byRole`) → 403
-  - [ ] `DELETE /users/:id` med `authenticateToken` + `authorize`
-  - [ ] service: `deleteUser` med `$1`
+- [x] **Uppgift 2:** bara Admin får ta bort en användare
+  - [x] middleware `authorize` (generellt) och `requireAdmin` (enkelt) → 403 ✅
+  - [x] `DELETE /users/:id` med `authenticateToken` + `requireAdmin` ✅ (skriven, 401 testad)
+  - [x] service: `deleteUser` med `$1` ✅ (testad: 200-fallet och 404-fallet)
 - [ ] **Uppgift 3:** testa i Postman
-  - [ ] utan token → 401
-  - [ ] som User → 403
+  - [x] utan token → 401 ✅
+  - [x] som User → 403 ✅
   - [ ] som Admin → 200
   - [ ] Admin tar bort ett id som inte finns → 404
 
